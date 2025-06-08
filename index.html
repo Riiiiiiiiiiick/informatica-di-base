@@ -3,50 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>informatica di <base href=""></title>
-	<link rel="stylesheet" href="stili.css">
+    <title>informatica di base</title>
+	<link rel="stylesheet" type="text/css" href="stili.css">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
     <style>
-		body {
-			margin: 0;
-            background-color: rgb(200,200,200);
-		}
-		canvas {
-			display: block;
-		}
+        body {
+            margin: 0;
+            background-color: rgb(200, 200, 200);
+        }
+        
+		#canvas-container {
+        position: absolute;
+        top: 6.6em;
+        left: 50vw;
+        width: calc(40vw - 2.2em);
+        aspect-ratio: 1 / 1;
+    }
+
+    canvas {
+        width: 100% !important;
+        height: 100% !important;
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
 	</style>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.11.1/p5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.11.1/addons/p5.sound.min.js"></script>
 </head>
 <body>
-	<script src="https://cdn.jsdelivr.net/npm/p5@1.11.3/lib/p5.min.js"></script>
-
-    <div class="testo">
-        <a>teoria</a> 
-		<a>playground</a>
+    <div class="testou">
+        <p style="position: absolute; left: 2.2em;">informatica di base</p> 
+        <p style="position: absolute; left: calc(50vw);">riccardo toniolo</p>
     </div>
-		
+		<div>
+            <div id="canvas-container" class="jscanvas">
+            <script src="brush.js"></script>
+        </div>
 
-	<div class="testo">
-		<p>05.2025</p> 
-        <p>riccardo toniolo</p>
-	</div>
-	<!--
-	<div class="divExt" style="padding: 0px; margin: 0px;">
-		<div class="divInt"><h1 class="testata" style="height: 0.9em; padding: 0px; margin: 0px;">Reaction /</h1>
-			<h1 class="testata" style="height: 0.9em; padding: 0px; margin: 0px;">Diffusion</h1>
-		</div>
-	</div>
+        </div>
+        
 
-		<div class="divExt" style="padding: 0px; margin: 0px;">
-			<div class="divInt" style="padding-left: 50%;">
-				<div style="margin-left: 1.1em;">
-					<h1 class="testata" style="height: 0.9em; padding: 0px; margin: 0px; color: black;">Organico /</h1>
-					<h1 class="testata" style="height: 0.9em; padding: 0px; margin: 0px; color: black;">Computazionale</h1>
-				</div>
-			</div>
-		</div>
-		*/
-	-->	
+	<div>
+		<p class="testob" style="display:block; position: absolute; bottom:0; left: 2.2em;" >
+			<a rel="brush" href="index.html">01.brush</a>
+		</p>
+		<p class="testob" style="display:block; position: absolute; bottom:0; left: calc(25vw);" >
+			<a rel="mask" href="mask.html">02.mask</a>
+		</p>
+
+		<p class="testob" style="display:block; position: absolute; bottom:0; left: calc(50vw);" >
+			<a rel="filter" href="filter.html">03.filter</a>
+		</p>
+
+		<p class="testob" style="display:block; position: absolute; bottom:0; left: calc(75vw);" >
+			<a rel="letter" href="letter.html">04.letter</a>
+		</p>
+	</div>
 </body>
 </html>
