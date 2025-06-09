@@ -2,16 +2,55 @@ let mic;
 let v = 0;
 let fontProg;
 let te;
+let sliderWidth, sliderHeight, sliderDensity;
+let colorePennello, coloreSfondo;
+let xSelect;
+let bSave;
+
+let sliderLength = 170.6;
+let mem = 40;
+let umem = 120;
+
+
 
 function setup() {
-    const canvas = createCanvas(400, 400);
+    const canvas = createCanvas(540, 540);
     canvas.parent('canvas-container');
     frameRate(60);
-    pixelDensity(2);
+    pixelDensity(4);
     te = createGraphics(width, height);
     angleMode(DEGREES);
     rectMode(CENTER);
     textAlign(CENTER, CENTER);
+
+    sliderWidth = createSlider(20, 50, 25);
+    sliderHeight = createSlider(20, 50, 25);
+    sliderDensity = createSlider(2, 16, 9);
+    uSpinMe = createSlider(0,360,0);
+
+    xSelect = createSelect();
+    xSelect.option('Ittens');
+    xSelect.option('Munari');
+    xSelect.option('halftone');
+    xSelect.option('square');
+    
+
+    sliderWidth.size(sliderLength);
+    sliderHeight.size(sliderLength);
+    sliderDensity.size(sliderLength);
+    uSpinMe.size(sliderLength);
+    xSelect.size(sliderLength);
+
+    bSave = createButton("SAVE IMG");
+    bSave.mousePressed(savePNG);
+    bSave.size(sliderLength);
+
+    colorePennello = createColorPicker('#003264');
+    coloreSfondo = createColorPicker('#c8c8c8');
+
+    positionUIElements();
+  
+    window.addEventListener('resize', positionUIElements);
     
     try {
         mic = new p5.AudioIn();
@@ -20,13 +59,27 @@ function setup() {
         console.log("Microphone not available");
     }
     
-    te.background(250);
-    te.fill(0, 0, 0, 40);
+    te.background(200);
     te.textAlign(CENTER, CENTER);
     te.textSize(14);
-    te.text("Press the Keys 1,2,3,4 in order to use the brushes", width/2, height/2);
     image(te, 0, 0);
-        }
+}
+
+function positionUIElements() {
+  let baseX = (windowWidth / 2) - (sliderLength+30);
+
+  xSelect.position(baseX, umem+2);
+  
+  sliderWidth.position(baseX, umem +(mem*2));
+  sliderHeight.position(baseX, umem + (mem*3));
+  sliderDensity.position(baseX, umem + (mem * 4));
+  uSpinMe.position(baseX, umem + (mem * 5));
+  
+  colorePennello.position(baseX, umem + (mem * 7));
+  coloreSfondo.position(baseX, umem + (mem * 8.5));
+  
+  bSave.position(baseX, umem + (mem * 11.5));
+}
 
 function draw() {
     vol(); 
@@ -56,10 +109,7 @@ function draw() {
 function keyPressed() {
     if(key == ' '){
         te.background(250);
-        te.fill(0, 0, 0, 35);
-        te.textAlign(CENTER, CENTER);
-        te.textSize(14);
-        te.text("Press the Keys 1,2,3,4 in order to use the brushes", width/2, height/2);
+        te.fill(coloreSfondo.value());
         image(te, 0, 0);
     }
 }
@@ -89,4 +139,8 @@ function touchStarted() {
     if (getAudioContext) {
         getAudioContext().resume();
     }
+}
+
+function savePNG() {
+  save("brush.png");
 }
