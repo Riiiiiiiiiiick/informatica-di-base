@@ -18,7 +18,7 @@
         position: absolute;
         top: 6.6em;
         left: 50vw;
-        width: calc(40vw - 2.2em);
+        width: calc(42.5vw - 2.2em);
         aspect-ratio: 1 / 1;
     }
 
@@ -36,16 +36,33 @@
     <script src="lettera.js"></script>
 </head>
 <body>
+    <div class="paragraph">
+        <p>Exercise n°4</p>
+        <br>
+        <p style="text-transform: none;">Starting from the concepts contained in the book "The Stroke" written by Gerrit Noordzij, I've tried to apply with the code some effects to a letter path. In order to achieve these results, I've traced a simple line-path in illustrator. Then I've exported the .svg file and used the site <a href="https://shinao.github.io/PathToPoints/">PathToPoints</a> to convert the svg line in points coordinates that I've later inserted in an array function. As the last thing I've coded the visual effect, that' made by the repetition of ellipses and a sort of halftone pattern created with the repetition of a line regulated by a for cycle.</p>
+    </div>
+
     <div class="testou">
         <p style="position: absolute; left: 2.2em;">informatica di base</p> 
         <p style="position: absolute; left: calc(50vw);">riccardo toniolo</p>
     </div>
+
+
 		<div>
             <div id="canvas-container" class="jscanvas">
-            <script src="letter.js"></script>
+                <script src="letter.js"></script>
+            </div>
         </div>
-
-        </div>
+    
+    <div class="dsliders">
+        <p class="tsliders">letter variation</p>
+        <p class="tsliders" style="padding-top: 40px;">height</p>
+        <p class="tsliders">width</p>
+        <p class="tsliders">density</p>
+        <p class="tsliders">rotation</p>
+        <p class="tsliders" style="padding-top: 38px;">letter</p>
+        <p class="tsliders" style="padding-top: 20px;">background</p>
+    </div>
         
 
 	<div>
